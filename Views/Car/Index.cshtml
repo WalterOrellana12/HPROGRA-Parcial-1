@@ -11,8 +11,12 @@
 </p>
 
 <form method="get" asp-action="Index" asp-controller="Car">
-    <input asp-for="Filter">
-    <button type="submit">Buscar</button>
+    <div class="col-6 form-group mb-2">
+        <input class="form-control" asp-for="Filter">
+    </div> 
+    <button class="btn btn-primary" type="submit">Buscar</button>
+
+
 </form>
 <table class="table">
     <thead>

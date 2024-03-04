@@ -252,3 +252,4 @@ C:\Users\wally\Desktop\Istea\walterParcial1\obj\Debug\net8.0\refint\walterParcia
 C:\Users\wally\Desktop\Istea\walterParcial1\obj\Debug\net8.0\walterParcial1.pdb
 C:\Users\wally\Desktop\Istea\walterParcial1\obj\Debug\net8.0\walterParcial1.genruntimeconfig.cache
 C:\Users\wally\Desktop\Istea\walterParcial1\obj\Debug\net8.0\ref\walterParcial1.dll
+C:\Users\wally\Desktop\Istea\walterParcial1\obj\Debug\net8.0\walterParcial1.sourcelink.json
