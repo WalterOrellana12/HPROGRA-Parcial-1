@@ -79,7 +79,7 @@ namespace walterParcial1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Year,Kilometraje,Color,Price,Image,CarBrandId")] Car car)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(car);
                 await _context.SaveChangesAsync();
@@ -116,7 +116,7 @@ namespace walterParcial1.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
