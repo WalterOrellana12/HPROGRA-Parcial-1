@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace walterParcial1.Migrations
 {
     [DbContext(typeof(CarContext))]
-    partial class CarContextModelSnapshot : ModelSnapshot
+    [Migration("20240305060502_add_CarDealershipId_in_car_model")]
+    partial class add_CarDealershipId_in_car_model
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
@@ -60,9 +63,6 @@ namespace walterParcial1.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("Stock")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Year")
                         .HasColumnType("INTEGER");
@@ -115,37 +115,6 @@ namespace walterParcial1.Migrations
                     b.ToTable("CarDealership");
                 });
 
-            modelBuilder.Entity("walterParcial1.Models.Movement", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("CarId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ClientName")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("InvoiceNumber")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("TypeM")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CarId");
-
-                    b.ToTable("Movement");
-                });
-
             modelBuilder.Entity("CarEDealerships", b =>
                 {
                     b.HasOne("walterParcial1.Models.Car", null)
@@ -168,17 +137,6 @@ namespace walterParcial1.Migrations
                         .HasForeignKey("CarBrandId");
 
                     b.Navigation("Brand");
-                });
-
-            modelBuilder.Entity("walterParcial1.Models.Movement", b =>
-                {
-                    b.HasOne("walterParcial1.Models.Car", "Car")
-                        .WithMany()
-                        .HasForeignKey("CarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Car");
                 });
 
             modelBuilder.Entity("walterParcial1.Models.CarBrand", b =>

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace walterParcial1.ViewModels;
 
-public class CarVM
+public class CarCreateVM
 {
     public int Id { get; set; }
     public string Name { get; set; }
@@ -10,8 +10,8 @@ public class CarVM
     public string Color { get; set; }
     public decimal Price { get; set; }
     public string Image { get; set; }
+    public int? CarBrandId { get; set; }
     [Display(Name = "Marca")]
     public string? BrandName {get; set; }
-    public string? DealershipName {get ;set ;}
-    public int Stock {get; set; }
+    public List<int> DealershipIds{get; set; }
 }

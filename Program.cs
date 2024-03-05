@@ -1,11 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using walterParcial1.Services;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CarContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("CarContext") ?? throw new InvalidOperationException("Connection string 'CarContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<ICarService, CarService>();
 
 var app = builder.Build();
 

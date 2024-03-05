@@ -11,5 +11,8 @@ public class Car
     public string Image { get; set; }
     public int? CarBrandId { get; set; }
     public virtual CarBrand Brand { get; set; }
-
+    public int? CarDealershipId { get; set; }
+    public int Stock{get; set; }
+    public virtual ICollection<CarDealership> Dealerships { get; set; }
+    
 }

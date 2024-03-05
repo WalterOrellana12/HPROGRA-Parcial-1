@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Nec1cCq7qi9S7k8adrtxmedTGLzVCn24uPZVjOmGzqXLEYHzh/Sc79q94DNk0HbIqD8YLSGhhoN+rcVN6plZ/Q==",
+  "dgSpecHash": "zTtKIqF7mSDI8HKYHL5b4nnm4/KeYyB8y0YArQTWMQoSja7HyuuhJ1kLATXGXVkkTpvupHacxyM7yMkEEFYbnQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\wally\\Desktop\\Istea\\walterParcial1\\walterParcial1.csproj",
+  "projectFilePath": "C:\\Users\\wally\\Desktop\\Istea\\ExamenFinalHerramientasdeProgramacionWalterOrellana\\walterParcial1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wally\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\wally\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

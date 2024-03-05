@@ -1,7 +1,8 @@
-@model walterParcial1.Models.Car
+@model walterParcial1.ViewModels.CarCreateVM
 
 @{
     ViewData["Title"] = "Create";
+    var dealershipList = (SelectList)ViewData["Dealerships"];
 }
 
 <h1>Create</h1>
@@ -23,11 +24,6 @@
                 <span asp-validation-for="Year" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Kilometraje" class="control-label"></label>
-                <input asp-for="Kilometraje" class="form-control" />
-                <span asp-validation-for="Kilometraje" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Color" class="control-label"></label>
                 <input asp-for="Color" class="form-control" />
                 <span asp-validation-for="Color" class="text-danger"></span>
@@ -47,6 +43,14 @@
                 <input asp-for="CarBrandId" class="form-control" />
                 <span asp-validation-for="CarBrandId" class="text-danger"></span>
             </div>
+            <div class="form-group mt-2 mb-2">
+                <select multiple class="form-control"
+                asp-for="DealershipIds"
+                asp-items="dealershipList">
+
+                </select>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -59,5 +63,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

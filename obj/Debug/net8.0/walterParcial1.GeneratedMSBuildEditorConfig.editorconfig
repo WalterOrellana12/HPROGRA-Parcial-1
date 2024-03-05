@@ -17,75 +17,103 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = walterParcial1
 build_property.RootNamespace = walterParcial1
-build_property.ProjectDir = C:\Users\wally\Desktop\Istea\walterParcial1\
+build_property.ProjectDir = c:\Users\wally\Desktop\ExamenFinalHerramientasdeProgramacionWalterOrellana\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\wally\Desktop\Istea\walterParcial1
+build_property.MSBuildProjectDirectory = c:\Users\wally\Desktop\ExamenFinalHerramientasdeProgramacionWalterOrellana
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Brand/Create.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Brand/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Brand/Delete.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Brand/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Brand/Details.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Brand/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Brand/Edit.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Brand/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Brand/Index.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Brand/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Car/Create.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Car/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Car/Delete.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Car/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Car/Details.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Car/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Car/Edit.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Car/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Car/Index.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Car/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Home/Index.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Car/Purchase.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXFB1cmNoYXNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Car/Sale.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXFNhbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Dealership/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVhbGVyc2hpcFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Dealership/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVhbGVyc2hpcFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Dealership/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVhbGVyc2hpcFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Dealership/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVhbGVyc2hpcFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Dealership/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVhbGVyc2hpcFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Shared/Error.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/_ViewImports.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/_ViewStart.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/wally/Desktop/Istea/walterParcial1/Views/Shared/_Layout.cshtml]
+[c:/Users/wally/Desktop/ExamenFinalHerramientasdeProgramacionWalterOrellana/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-901k1all8f

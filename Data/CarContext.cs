@@ -15,4 +15,17 @@ using walterParcial1.Models;
         public DbSet<walterParcial1.Models.Car> Car { get; set; } = default!;
 
 public DbSet<walterParcial1.Models.CarBrand> CarBrand { get; set; } = default!;
+ 
+public DbSet<walterParcial1.Models.Movement> Movement { get; set; } = default!;
+ protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Car>()
+                .HasMany(e => e.Dealerships)
+                .WithMany(e => e.Cars)
+                .UsingEntity("CarEDealerships");
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+public DbSet<walterParcial1.Models.CarDealership> CarDealership { get; set; } = default!;
 }

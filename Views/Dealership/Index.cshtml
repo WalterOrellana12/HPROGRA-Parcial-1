@@ -1,10 +1,10 @@
-@model IEnumerable<walterParcial1.Models.CarBrand>
+@model IEnumerable<walterParcial1.Models.CarDealership>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Lista de marcas</h1>
+<h1>Lista de concesionarias</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -16,7 +16,10 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Country)
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZipCode)
             </th>
             <th></th>
         </tr>
@@ -28,7 +31,10 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Country)
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

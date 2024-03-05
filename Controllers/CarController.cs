@@ -1,48 +1,46 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using walterParcial1.Models;
+using walterParcial1.Services;
 using walterParcial1.ViewModels;
 
 namespace walterParcial1.Controllers
 {
     public class CarController : Controller
     {
-        private readonly CarContext _context;
+        private readonly ICarService _carService;
 
-        public CarController(CarContext context)
+        public CarController(ICarService carService)
         {
-            _context = context;
+            _carService = carService;
         }
 
         // GET: Car
         public async Task<IActionResult> Index(string filter)
         {
-            var query =  from car in _context.Car select car;
-            query = query.Include(x=> x.Brand);
-
-            if(!string.IsNullOrEmpty(filter))
-            {
-                query = query.Where(x => x.Name.ToLower().Contains(filter.ToLower()));
-            }
-
-            var carList = await query.ToListAsync();
             var carListVM = new CarListVM();
+            var carList = await _carService.GetAll(filter);
+
 
             foreach (var item in carList)
             {
-                carListVM.Cars.Add(new CarVM{
+                carListVM.Cars.Add(new CarVM
+                {
                     Id = item.Id,
                     Name = item.Name,
                     Year = item.Year,
                     Color = item.Color,
                     Price = item.Price,
                     Image = item.Image,
-                    BrandName = item.Brand?.Name
+                    BrandName = item.Brand?.Name,
+                    Stock = item.Stock
+
                 });
             }
             return View(carListVM);
@@ -51,13 +49,7 @@ namespace walterParcial1.Controllers
         // GET: Car/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var car = await _context.Car
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var car = _carService.GetById(id);
             if (car == null)
             {
                 return NotFound();
@@ -67,8 +59,11 @@ namespace walterParcial1.Controllers
         }
 
         // GET: Car/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var dealershipList = await _carService.GetAllDealerships();
+            if (dealershipList == null) dealershipList = new List<CarDealership>();
+            ViewData["Dealerships"] = new SelectList(dealershipList, "Id", "Name");
             return View();
         }
 
@@ -77,12 +72,24 @@ namespace walterParcial1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Year,Kilometraje,Color,Price,Image,CarBrandId")] Car car)
+        public async Task<IActionResult> Create([Bind("Id,Name,Year,Kilometraje,Color,Price,Image,CarBrandId,DealershipIds")] CarCreateVM car)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                _context.Add(car);
-                await _context.SaveChangesAsync();
+                var dealershipList = await _carService.GetAllDealerships();
+                var dealershipFilteredList = dealershipList.Where(x => car.DealershipIds.Contains(x.Id)).ToList();
+                var newCar = new Car
+                {
+                    Name = car.Name,
+                    Year = car.Year,
+                    Color = car.Color,
+                    Price = car.Price,
+                    Image = car.Image,
+                    CarBrandId = car.CarBrandId,
+                    Dealerships = dealershipList
+
+                };
+                await _carService.Create(newCar);
                 return RedirectToAction(nameof(Index));
             }
             return View(car);
@@ -91,12 +98,7 @@ namespace walterParcial1.Controllers
         // GET: Car/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var car = await _context.Car.FindAsync(id);
+            var car = await _carService.GetById(id);
             if (car == null)
             {
                 return NotFound();
@@ -120,12 +122,11 @@ namespace walterParcial1.Controllers
             {
                 try
                 {
-                    _context.Update(car);
-                    await _context.SaveChangesAsync();
+                    _carService.Update(car);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CarExists(car.Id))
+                    if (_carService.GetById(id) == null)
                     {
                         return NotFound();
                     }
@@ -142,14 +143,8 @@ namespace walterParcial1.Controllers
         // GET: Car/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            var car = await _carService.GetById(id);
             if (id == null)
-            {
-                return NotFound();
-            }
-
-            var car = await _context.Car
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (car == null)
             {
                 return NotFound();
             }
@@ -162,19 +157,79 @@ namespace walterParcial1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var car = await _context.Car.FindAsync(id);
-            if (car != null)
-            {
-                _context.Car.Remove(car);
-            }
-
-            await _context.SaveChangesAsync();
+            _carService.Delete(id);
             return RedirectToAction(nameof(Index));
         }
-
-        private bool CarExists(int id)
+        public async Task<IActionResult> Purchase(int id)
         {
-            return _context.Car.Any(e => e.Id == id);
+            var car = await _carService.GetById(id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+            ViewData["Car"] = car;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Purchase([Bind("CarId,Date,ClientName,Quantity,InvoiceNumber")] MovementCreateVM purchase)
+        {
+            if (ModelState.IsValid)
+            {
+                var newPurchase = new Movement
+                {
+                    CarId = purchase.CarId,
+                    Date = purchase.Date,
+                    ClientName = purchase.ClientName,
+                    InvoiceNumber = purchase.InvoiceNumber,
+                    Quantity = purchase.Quantity,
+                    TypeM = Utils.MovementType.purchase
+
+                };
+                var response = await _carService.Purchase(newPurchase);
+                if (string.IsNullOrEmpty(response))
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewData["ErrorMag"] = response;
+            }
+            return View(purchase);
+        }
+        //GET SALE
+        public async Task<IActionResult> Sale(int id)
+        {
+            var car = await _carService.GetById(id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+            ViewData["Car"] = car;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        //POST SALE
+        public async Task<IActionResult> Sale([Bind("CarId,Date,ClientName,Quantity,InvoiceNumber")] MovementCreateVM sale)
+        {
+            if (ModelState.IsValid)
+            {
+                var newSale = new Movement
+                {
+                    CarId = sale.CarId,
+                    Date = sale.Date,
+                    ClientName = sale.ClientName,
+                    InvoiceNumber = sale.InvoiceNumber,
+                    Quantity = sale.Quantity,
+                    TypeM = Utils.MovementType.sale
+
+                };
+                await _carService.Purchase(newSale);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(sale);
         }
     }
 }
+
+
